@@ -1,0 +1,2580 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>SMART MONEY — Қаржылық сауаттылық</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:#f8faf6;
+    color:#26352d;
+    line-height:1.6;
+}
+
+:root{
+    --olive:#66785b;
+    --dark:#344332;
+    --light:#eef3e9;
+    --cream:#fbfaf4;
+    --white:#ffffff;
+    --gold:#c6a85a;
+    --red:#c96a62;
+    --shadow:0 15px 45px rgba(52,67,50,.10);
+}
+
+
+/* =========================
+   NAVIGATION
+========================= */
+
+nav{
+    position:sticky;
+    top:0;
+    z-index:100;
+    background:rgba(255,255,255,.95);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid #e7ece3;
+}
+
+.nav-inner{
+    max-width:1150px;
+    margin:auto;
+    padding:16px 24px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+}
+
+.logo{
+    font-size:22px;
+    font-weight:800;
+    color:var(--dark);
+    letter-spacing:1px;
+}
+
+.logo span{
+    color:var(--olive);
+}
+
+.nav-links{
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+.nav-links button{
+    border:0;
+    background:transparent;
+    color:#536052;
+    padding:9px 13px;
+    border-radius:10px;
+    cursor:pointer;
+    font-size:14px;
+}
+
+.nav-links button:hover{
+    background:var(--light);
+    color:var(--dark);
+}
+
+.languages{
+    display:flex;
+    gap:5px;
+}
+
+.lang{
+    border:1px solid #dce4d7;
+    background:white;
+    border-radius:8px;
+    padding:6px 9px;
+    cursor:pointer;
+    font-size:12px;
+}
+
+.lang.active{
+    background:var(--olive);
+    color:white;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+    max-width:1150px;
+    margin:auto;
+    padding:80px 24px 65px;
+    display:grid;
+    grid-template-columns:1.2fr .8fr;
+    gap:50px;
+    align-items:center;
+}
+
+.badge{
+    display:inline-block;
+    background:var(--light);
+    color:var(--olive);
+    padding:8px 14px;
+    border-radius:30px;
+    font-size:13px;
+    font-weight:bold;
+    margin-bottom:20px;
+}
+
+.hero h1{
+    font-size:clamp(40px,6vw,72px);
+    line-height:1.02;
+    color:var(--dark);
+    margin-bottom:25px;
+}
+
+.hero h1 span{
+    color:var(--olive);
+}
+
+.hero p{
+    max-width:650px;
+    color:#687367;
+    font-size:18px;
+    margin-bottom:30px;
+}
+
+.main-btn{
+    display:inline-block;
+    border:0;
+    background:var(--dark);
+    color:white;
+    padding:14px 24px;
+    border-radius:13px;
+    cursor:pointer;
+    font-weight:bold;
+    font-size:15px;
+}
+
+.main-btn:hover{
+    background:var(--olive);
+}
+
+
+/* =========================
+   MONEY CARD
+========================= */
+
+.money-card{
+    background:var(--white);
+    border-radius:28px;
+    padding:30px;
+    box-shadow:var(--shadow);
+    border:1px solid #e8eee5;
+}
+
+.money-circle{
+    width:190px;
+    height:190px;
+    border-radius:50%;
+    margin:0 auto 25px;
+
+    background:
+    conic-gradient(
+        var(--olive) 0 55%,
+        #a9b99e 55% 60%,
+        var(--gold) 60% 70%,
+        #84967b 70% 85%,
+        #d5ddcf 85% 100%
+    );
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.money-circle div{
+    width:125px;
+    height:125px;
+    background:white;
+    border-radius:50%;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    text-align:center;
+
+    font-size:14px;
+    font-weight:bold;
+    color:var(--dark);
+}
+
+.mini-row{
+    display:flex;
+    justify-content:space-between;
+
+    padding:8px 0;
+
+    border-bottom:1px solid #edf0eb;
+
+    font-size:14px;
+}
+
+
+/* =========================
+   SECTIONS
+========================= */
+
+section{
+    padding:70px 24px;
+}
+
+.section-inner{
+    max-width:1150px;
+    margin:auto;
+}
+
+.section-title{
+    font-size:38px;
+    color:var(--dark);
+    margin-bottom:12px;
+}
+
+.section-subtitle{
+    color:#70796d;
+    max-width:750px;
+    margin-bottom:35px;
+}
+
+
+/* =========================
+   CALCULATOR
+========================= */
+
+.calc-grid{
+    display:grid;
+    grid-template-columns:.75fr 1.25fr;
+    gap:25px;
+}
+
+.card{
+    background:white;
+    border:1px solid #e7ece4;
+    border-radius:22px;
+    padding:28px;
+    box-shadow:var(--shadow);
+}
+
+label{
+    display:block;
+    font-weight:bold;
+    margin-bottom:9px;
+    color:var(--dark);
+}
+
+input{
+    width:100%;
+    border:1px solid #dce4d8;
+    padding:14px 15px;
+    border-radius:12px;
+    font-size:17px;
+    outline:none;
+}
+
+input:focus{
+    border-color:var(--olive);
+}
+
+.hint{
+    color:#7b8478;
+    font-size:13px;
+    margin-top:8px;
+}
+
+.allocation{
+    margin-top:22px;
+}
+
+.allocation-row{
+    margin-bottom:18px;
+}
+
+.row-head{
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:7px;
+    font-size:14px;
+    font-weight:bold;
+}
+
+.progress{
+    height:10px;
+    background:#edf1eb;
+    border-radius:20px;
+    overflow:hidden;
+}
+
+.progress div{
+    height:100%;
+    background:var(--olive);
+    border-radius:20px;
+}
+
+.amount{
+    color:var(--olive);
+}
+
+.total{
+    margin-top:22px;
+    padding:15px;
+    border-radius:13px;
+    background:var(--light);
+
+    display:flex;
+    justify-content:space-between;
+
+    font-weight:bold;
+}
+
+
+/* =========================
+   IMPULSE TEST
+========================= */
+
+.impulse-section{
+    background:#f0f4ed;
+}
+
+.impulse-grid{
+    display:grid;
+    grid-template-columns:1fr .8fr;
+    gap:25px;
+}
+
+.question{
+    padding:20px 0;
+    border-bottom:1px solid #e5ebe1;
+}
+
+.question:last-child{
+    border-bottom:0;
+}
+
+.question-text{
+    font-weight:bold;
+    margin-bottom:13px;
+}
+
+.answer-buttons{
+    display:flex;
+    gap:10px;
+}
+
+.answer{
+    border:1px solid #d6dfd1;
+    background:white;
+    padding:10px 22px;
+    border-radius:10px;
+    cursor:pointer;
+    font-weight:bold;
+    transition:.2s;
+}
+
+.answer:hover{
+    border-color:var(--olive);
+    transform:translateY(-1px);
+}
+
+.answer.selected{
+    background:var(--olive);
+    color:white;
+    border-color:var(--olive);
+}
+
+.test-btn{
+    width:100%;
+    margin-top:25px;
+    padding:15px;
+
+    border:0;
+    border-radius:12px;
+
+    background:var(--dark);
+    color:white;
+
+    font-size:16px;
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:.2s;
+}
+
+.test-btn:hover{
+    background:var(--olive);
+    transform:translateY(-1px);
+}
+
+
+/* =========================
+   RESULT
+========================= */
+
+.result{
+    min-height:330px;
+
+    display:flex;
+    flex-direction:column;
+
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+
+    transition:.3s;
+}
+
+.result-icon{
+    font-size:55px;
+    margin-bottom:15px;
+}
+
+.result-score{
+    font-size:55px;
+    font-weight:800;
+    color:var(--olive);
+    margin:5px 0;
+}
+
+.result h3{
+    font-size:23px;
+    color:var(--dark);
+    margin-bottom:10px;
+}
+
+.result p{
+    color:#687267;
+}
+
+.result.good{
+    border:2px solid #a9c09c;
+}
+
+.result.warn{
+    border:2px solid #d8c27a;
+}
+
+.result.bad{
+    border:2px solid #d79b94;
+}
+
+
+/* =========================
+   DEFINITIONS
+========================= */
+
+.definitions{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.definition{
+    background:white;
+    border-radius:20px;
+    padding:25px;
+    border:1px solid #e5ebe2;
+    box-shadow:var(--shadow);
+}
+
+.definition-icon{
+    font-size:32px;
+    margin-bottom:12px;
+}
+
+.definition h3{
+    color:var(--dark);
+    margin-bottom:8px;
+}
+
+.definition p{
+    color:#70796e;
+    font-size:14px;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+    background:var(--dark);
+    color:white;
+    padding:35px 24px;
+    text-align:center;
+}
+
+footer span{
+    color:#cbd8c2;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:850px){
+
+    .nav-inner{
+        flex-direction:column;
+    }
+
+    .hero{
+        grid-template-columns:1fr;
+        padding-top:55px;
+    }
+
+    .calc-grid,
+    .impulse-grid{
+        grid-template-columns:1fr;
+    }
+
+    .definitions{
+        grid-template-columns:1fr;
+    }
+
+    .hero h1{
+        font-size:48px;
+    }
+}
+
+
+@media(max-width:550px){
+
+    .nav-links{
+        width:100%;
+    }
+
+    .nav-links button{
+        font-size:12px;
+    }
+
+    .hero h1{
+        font-size:40px;
+    }
+
+    section{
+        padding:50px 16px;
+    }
+
+    .section-title{
+        font-size:30px;
+    }
+
+    .answer-buttons{
+        flex-wrap:wrap;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =========================================
+     NAVIGATION
+========================================= -->
+
+<nav>
+
+<div class="nav-inner">
+
+<div class="logo">
+SMART <span>MONEY</span>
+</div>
+
+
+<div class="nav-links">
+
+<button onclick="go('home')" id="navHome">
+Басты бет
+</button>
+
+<button onclick="go('definitions')" id="navDefinitions">
+Анықтамалар
+</button>
+
+<button onclick="go('salary')" id="navSalary">
+Жалақыны бөлу
+</button>
+
+<button onclick="go('impulse')" id="navImpulse">
+Импульсивтілік
+</button>
+
+</div>
+
+
+<div class="languages">
+
+<button
+class="lang active"
+onclick="changeLanguage('kk')"
+>
+KZ
+</button>
+
+<button
+class="lang"
+onclick="changeLanguage('ru')"
+>
+RU
+</button>
+
+<button
+class="lang"
+onclick="changeLanguage('en')"
+>
+EN
+</button>
+
+</div>
+
+</div>
+
+</nav>
+
+
+
+<!-- =========================================
+     HOME
+========================================= -->
+
+<section id="home">
+
+<div class="hero">
+
+<div>
+
+<div class="badge" id="badge">
+Ғылыми жоба • Қаржылық сауаттылық
+</div>
+
+
+<h1 id="heroTitle">
+
+Ақшаңызды<br>
+<span>ақылды</span> басқарыңыз
+
+</h1>
+
+
+<p id="heroText">
+
+Қаржыны дұрыс бөлу, мақсат қою және
+импульсивті сатып алуды бақылау —
+қаржылық сауаттылықтың маңызды бөлігі.
+
+</p>
+
+
+<button
+class="main-btn"
+onclick="go('salary')"
+id="heroButton"
+>
+
+Калькуляторды ашу →
+
+</button>
+
+</div>
+
+
+
+<div class="money-card">
+
+<div class="money-circle">
+
+<div>
+
+100%<br>
+ЖАЛАҚЫ
+
+</div>
+
+</div>
+
+
+<div class="mini-row">
+<span>Негізгі қажеттіліктер</span>
+<b>55%</b>
+</div>
+
+<div class="mini-row">
+<span>Жеке шығындар</span>
+<b>5%</b>
+</div>
+
+<div class="mini-row">
+<span>Қарыз / инвестиция</span>
+<b>10%</b>
+</div>
+
+<div class="mini-row">
+<span>Қысқа мерзімді мақсат</span>
+<b>15%</b>
+</div>
+
+<div class="mini-row">
+<span>Ұзақ мерзімді капитал</span>
+<b>15%</b>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================================
+     SALARY
+========================================= -->
+
+<section id="salary">
+
+<div class="section-inner">
+
+<h2 class="section-title" id="salaryTitle">
+Жалақыны ақылды бөлу
+</h2>
+
+
+<p class="section-subtitle" id="salaryText">
+
+Ай сайынғы жалақыңызды енгізіңіз.
+Калькулятор әр санатты автоматты түрде есептейді.
+
+</p>
+
+
+<div class="calc-grid">
+
+
+<div class="card">
+
+<label id="salaryLabel">
+Айлық жалақы
+</label>
+
+
+<input
+type="number"
+id="salaryInput"
+value="300000"
+min="0"
+oninput="calculateSalary()"
+>
+
+
+<div class="hint" id="salaryHint">
+Соманы теңгемен енгізіңіз
+</div>
+
+
+<div class="total">
+
+<span id="totalText">
+Жалақы
+</span>
+
+<span id="salaryTotal">
+300 000 ₸
+</span>
+
+</div>
+
+</div>
+
+
+
+<div class="card">
+
+<div class="allocation">
+
+
+<div class="allocation-row">
+
+<div class="row-head">
+
+<span>
+🏠
+<span id="needText">
+Негізгі қажеттіліктер
+</span>
+— 55%
+</span>
+
+<span
+class="amount"
+id="needAmount"
+>
+165 000 ₸
+</span>
+
+</div>
+
+<div class="progress">
+<div style="width:55%"></div>
+</div>
+
+</div>
+
+
+
+<div class="allocation-row">
+
+<div class="row-head">
+
+<span>
+☕
+<span id="personalText">
+Жеке шығындар
+</span>
+— 5%
+</span>
+
+<span
+class="amount"
+id="personalAmount"
+>
+15 000 ₸
+</span>
+
+</div>
+
+<div class="progress">
+<div style="width:5%"></div>
+</div>
+
+</div>
+
+
+
+<div class="allocation-row">
+
+<div class="row-head">
+
+<span>
+💰
+<span id="debtText">
+Қарыз / инвестиция
+</span>
+— 10%
+</span>
+
+<span
+class="amount"
+id="debtAmount"
+>
+30 000 ₸
+</span>
+
+</div>
+
+<div class="progress">
+<div style="width:10%"></div>
+</div>
+
+</div>
+
+
+
+<div class="allocation-row">
+
+<div class="row-head">
+
+<span>
+🎯
+<span id="shortText">
+Қысқа мерзімді мақсат
+</span>
+— 15%
+</span>
+
+<span
+class="amount"
+id="shortAmount"
+>
+45 000 ₸
+</span>
+
+</div>
+
+<div class="progress">
+<div style="width:15%"></div>
+</div>
+
+</div>
+
+
+
+<div class="allocation-row">
+
+<div class="row-head">
+
+<span>
+🌱
+<span id="longText">
+Ұзақ мерзімді капитал
+</span>
+— 15%
+</span>
+
+<span
+class="amount"
+id="longAmount"
+>
+45 000 ₸
+</span>
+
+</div>
+
+<div class="progress">
+<div style="width:15%"></div>
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================================
+     IMPULSE TEST
+========================================= -->
+
+<section
+class="impulse-section"
+id="impulse"
+>
+
+<div class="section-inner">
+
+
+<h2
+class="section-title"
+id="impulseTitle"
+>
+Импульсивті сатып алу тесті
+</h2>
+
+
+<p
+class="section-subtitle"
+id="impulseDescription"
+>
+
+Төмендегі 7 сұраққа жауап беріңіз.
+Соңында сіздің импульсивті сатып алу
+деңгейіңіз пайызбен көрсетіледі.
+
+</p>
+
+
+
+<div class="impulse-grid">
+
+
+<!-- QUESTIONS -->
+
+<div class="card">
+
+<div id="questions"></div>
+
+
+<button
+class="test-btn"
+type="button"
+onclick="checkImpulse()"
+id="checkButton"
+>
+
+Нәтижені анықтау
+
+</button>
+
+</div>
+
+
+
+<!-- RESULT -->
+
+<div
+class="card result"
+id="result"
+>
+
+<div
+class="result-icon"
+id="resultIcon"
+>
+🧠
+</div>
+
+
+<div
+class="result-score"
+id="score"
+>
+—
+</div>
+
+
+<h3 id="resultTitle">
+
+Нәтиже осы жерде шығады
+
+</h3>
+
+
+<p id="resultText">
+
+Барлық 7 сұраққа жауап беріп,
+«Нәтижені анықтау» батырмасын басыңыз.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================================
+     DEFINITIONS
+========================================= -->
+
+<section id="definitions">
+
+<div class="section-inner">
+
+
+<h2
+class="section-title"
+id="definitionsTitle"
+>
+Негізгі анықтамалар
+</h2>
+
+
+<p
+class="section-subtitle"
+id="definitionsDescription"
+>
+
+Қаржылық сауаттылыққа қатысты
+негізгі ұғымдар.
+
+</p>
+
+
+
+<div class="definitions">
+
+
+<div class="definition">
+
+<div class="definition-icon">
+💡
+</div>
+
+<h3 id="def1Title">
+Қаржылық сауаттылық
+</h3>
+
+<p id="def1Text">
+
+Ақшаны тиімді басқару, табыс пен шығынды
+жоспарлау және қаржылық мақсаттарға
+жету қабілеті.
+
+</p>
+
+</div>
+
+
+
+<div class="definition">
+
+<div class="definition-icon">
+🛒
+</div>
+
+<h3 id="def2Title">
+Импульсивті сатып алу
+</h3>
+
+<p id="def2Text">
+
+Алдын ала жоспарланбаған,
+эмоцияның әсерінен жасалатын сатып алу.
+
+</p>
+
+</div>
+
+
+
+<div class="definition">
+
+<div class="definition-icon">
+🎯
+</div>
+
+<h3 id="def3Title">
+Қаржылық мақсат
+</h3>
+
+<p id="def3Text">
+
+Белгілі бір уақыт ішінде жинауға немесе
+қол жеткізуге жоспарланған қаржылық нәтиже.
+
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================================
+     FOOTER
+========================================= -->
+
+<footer>
+
+<b>SMART MONEY</b>
+
+<br>
+
+<span id="footerText">
+Қаржылық сауаттылық • Ғылыми жоба
+</span>
+
+</footer>
+
+
+
+<script>
+
+
+/* =========================================
+   ТІЛДЕР
+========================================= */
+
+const translations = {
+
+
+kk:{
+
+badge:
+"Ғылыми жоба • Қаржылық сауаттылық",
+
+home:
+"Басты бет",
+
+definitions:
+"Анықтамалар",
+
+salary:
+"Жалақыны бөлу",
+
+impulse:
+"Импульсивтілік",
+
+
+heroTitle:
+'Ақшаңызды<br><span>ақылды</span> басқарыңыз',
+
+
+heroText:
+"Қаржыны дұрыс бөлу, мақсат қою және импульсивті сатып алуды бақылау — қаржылық сауаттылықтың маңызды бөлігі.",
+
+
+heroButton:
+"Калькуляторды ашу →",
+
+
+salaryTitle:
+"Жалақыны ақылды бөлу",
+
+
+salaryText:
+"Ай сайынғы жалақыңызды енгізіңіз. Калькулятор әр санатты автоматты түрде есептейді.",
+
+
+salaryLabel:
+"Айлық жалақы",
+
+
+salaryHint:
+"Соманы теңгемен енгізіңіз",
+
+
+total:
+"Жалақы",
+
+
+need:
+"Негізгі қажеттіліктер",
+
+personal:
+"Жеке шығындар",
+
+debt:
+"Қарыз / инвестиция",
+
+short:
+"Қысқа мерзімді мақсат",
+
+long:
+"Ұзақ мерзімді капитал",
+
+
+
+/* TEST */
+
+impulseTitle:
+"Импульсивті сатып алу тесті",
+
+
+impulseDescription:
+"Төмендегі 7 сұраққа жауап беріңіз. Соңында сіздің импульсивті сатып алу деңгейіңіз пайызбен көрсетіледі.",
+
+
+check:
+"Нәтижені анықтау",
+
+
+resultDefault:
+"Нәтиже осы жерде шығады",
+
+
+resultInstruction:
+"Барлық 7 сұраққа жауап беріп, «Нәтижені анықтау» батырмасын басыңыз.",
+
+
+missing:
+"Барлық сұраққа жауап беріңіз",
+
+
+missingText:
+"Жауап берілмеген сұрақтар: ",
+
+
+low:
+"Төмен деңгей",
+
+
+lowText:
+"Сатып алуды алдын ала ойластырып, эмоцияға берілмеуге тырысасыз.",
+
+
+medium:
+"Орташа деңгей",
+
+
+mediumText:
+"Кейде эмоция әсерінен жоспарланбаған сатып алулар болуы мүмкін.",
+
+
+high:
+"Жоғары деңгей",
+
+
+highText:
+"Эмоциялық және жоспарланбаған сатып алуларға бейімділік байқалады.",
+
+
+
+questions:[
+
+"Сіз дүкенге кіргенде жоспарламаған затты сатып аласыз ба?",
+
+"Жарнама немесе жеңілдік сізді қажет емес затты алуға итермелей ме?",
+
+"Көңіл-күйіңіз түскен кезде өзіңізді сатып алумен жұбатасыз ба?",
+
+"Сатып алғаннан кейін «мұны алудың қажеті жоқ еді» деп ойлайсыз ба?",
+
+"Әлеуметтік желідегі тауарларды көріп, бірден сатып алғыңыз келе ме?",
+
+"Сатып алу алдында оның сізге шынымен қажет екенін тексересіз бе?",
+
+"Жеңілдік бітіп қалудан қорқып, затты асығыс сатып алған кезіңіз болды ма?"
+
+],
+
+
+yes:
+"Иә",
+
+no:
+"Жоқ",
+
+
+
+definitionsTitle:
+"Негізгі анықтамалар",
+
+
+definitionsDescription:
+"Қаржылық сауаттылыққа қатысты негізгі ұғымдар.",
+
+
+def1Title:
+"Қаржылық сауаттылық",
+
+
+def1Text:
+"Ақшаны тиімді басқару, табыс пен шығынды жоспарлау және қаржылық мақсаттарға жету қабілеті.",
+
+
+def2Title:
+"Импульсивті сатып алу",
+
+
+def2Text:
+"Алдын ала жоспарланбаған, эмоцияның әсерінен жасалатын сатып алу.",
+
+
+def3Title:
+"Қаржылық мақсат",
+
+
+def3Text:
+"Белгілі бір уақыт ішінде жинауға немесе қол жеткізуге жоспарланған қаржылық нәтиже.",
+
+
+footer:
+"Қаржылық сауаттылық • Ғылыми жоба"
+
+},
+
+
+
+ru:{
+
+badge:
+"Научный проект • Финансовая грамотность",
+
+home:
+"Главная",
+
+definitions:
+"Определения",
+
+salary:
+"Распределение зарплаты",
+
+impulse:
+"Импульсивность",
+
+
+heroTitle:
+'Управляйте<br><span>деньгами</span> разумно',
+
+
+heroText:
+"Правильное распределение денег, постановка целей и контроль импульсивных покупок — важные составляющие финансовой грамотности.",
+
+
+heroButton:
+"Открыть калькулятор →",
+
+
+salaryTitle:
+"Умное распределение зарплаты",
+
+
+salaryText:
+"Введите вашу ежемесячную зарплату. Калькулятор автоматически рассчитает каждую категорию.",
+
+
+salaryLabel:
+"Ежемесячная зарплата",
+
+
+salaryHint:
+"Введите сумму в тенге",
+
+
+total:
+"Зарплата",
+
+
+need:
+"Основные потребности",
+
+personal:
+"Личные расходы",
+
+debt:
+"Долги / инвестиции",
+
+short:
+"Краткосрочные цели",
+
+long:
+"Долгосрочный капитал",
+
+
+
+/* TEST */
+
+impulseTitle:
+"Тест на импульсивные покупки",
+
+
+impulseDescription:
+"Ответьте на 7 вопросов. В конце вы получите процентный показатель уровня импульсивных покупок.",
+
+
+check:
+"Определить результат",
+
+
+resultDefault:
+"Здесь появится результат",
+
+
+resultInstruction:
+"Ответьте на все 7 вопросов и нажмите «Определить результат».",
+
+
+missing:
+"Ответьте на все вопросы",
+
+
+missingText:
+"Без ответа остались вопросы: ",
+
+
+low:
+"Низкий уровень",
+
+
+lowText:
+"Вы стараетесь обдумывать покупки и не поддаваться эмоциям.",
+
+
+medium:
+"Средний уровень",
+
+
+mediumText:
+"Иногда эмоции могут влиять на ваши незапланированные покупки.",
+
+
+high:
+"Высокий уровень",
+
+
+highText:
+"Наблюдается склонность к эмоциональным и незапланированным покупкам.",
+
+
+questions:[
+
+"Покупаете ли вы в магазине вещи, которые не планировали покупать?",
+
+"Могут ли реклама или скидка заставить вас купить ненужную вещь?",
+
+"Покупаете ли вы что-нибудь, чтобы поднять себе настроение?",
+
+"После покупки вы иногда думаете: «Мне это было не нужно»?",
+
+"Возникает ли у вас желание сразу купить товар после просмотра его в соцсетях?",
+
+"Проверяете ли вы перед покупкой, действительно ли вам нужна эта вещь?",
+
+"Бывало ли, что вы покупали вещь поспешно, боясь пропустить скидку?"
+
+],
+
+
+yes:
+"Да",
+
+no:
+"Нет",
+
+
+
+definitionsTitle:
+"Основные определения",
+
+
+definitionsDescription:
+"Основные понятия финансовой грамотности.",
+
+
+def1Title:
+"Финансовая грамотность",
+
+
+def1Text:
+"Умение эффективно управлять деньгами, планировать доходы и расходы и достигать финансовых целей.",
+
+
+def2Title:
+"Импульсивная покупка",
+
+
+def2Text:
+"Незапланированная покупка, совершённая под влиянием эмоций.",
+
+
+def3Title:
+"Финансовая цель",
+
+
+def3Text:
+"Запланированный финансовый результат, которого необходимо достичь за определённый период.",
+
+
+footer:
+"Финансовая грамотность • Научный проект"
+
+},
+
+
+
+en:{
+
+badge:
+"Science project • Financial literacy",
+
+home:
+"Home",
+
+definitions:
+"Definitions",
+
+salary:
+"Salary allocation",
+
+impulse:
+"Impulse test",
+
+
+heroTitle:
+'Manage your<br><span>money</span> wisely',
+
+
+heroText:
+"Smart budgeting, goal setting and controlling impulse purchases are important parts of financial literacy.",
+
+
+heroButton:
+"Open calculator →",
+
+
+salaryTitle:
+"Smart salary allocation",
+
+
+salaryText:
+"Enter your monthly salary. The calculator will automatically calculate each category.",
+
+
+salaryLabel:
+"Monthly salary",
+
+
+salaryHint:
+"Enter the amount in tenge",
+
+
+total:
+"Salary",
+
+
+need:
+"Basic needs",
+
+personal:
+"Personal spending",
+
+debt:
+"Debt / investments",
+
+short:
+"Short-term goals",
+
+long:
+"Long-term wealth",
+
+
+
+/* TEST */
+
+impulseTitle:
+"Impulse purchase test",
+
+
+impulseDescription:
+"Answer 7 questions. At the end you will receive a percentage showing your impulse purchase level.",
+
+
+check:
+"Calculate result",
+
+
+resultDefault:
+"Your result will appear here",
+
+
+resultInstruction:
+"Answer all 7 questions and click «Calculate result».",
+
+
+missing:
+"Please answer all questions",
+
+
+missingText:
+"Unanswered questions: ",
+
+
+low:
+"Low level",
+
+
+lowText:
+"You usually think about purchases and try not to act emotionally.",
+
+
+medium:
+"Medium level",
+
+
+mediumText:
+"Sometimes emotions may influence your unplanned purchases.",
+
+
+high:
+"High level",
+
+
+highText:
+"There is a tendency toward emotional and unplanned purchases.",
+
+
+questions:[
+
+"Do you buy things in a store that you did not plan to buy?",
+
+"Can advertising or discounts make you buy something unnecessary?",
+
+"Do you buy something when you want to improve your mood?",
+
+"After buying something, do you sometimes think: «I did not need this»?",
+
+"Do you immediately want to buy products you see on social media?",
+
+"Do you check whether you really need something before buying it?",
+
+"Have you ever bought something quickly because you were afraid of missing a discount?"
+
+],
+
+
+yes:
+"Yes",
+
+no:
+"No",
+
+
+
+definitionsTitle:
+"Key definitions",
+
+
+definitionsDescription:
+"Important concepts related to financial literacy.",
+
+
+def1Title:
+"Financial literacy",
+
+
+def1Text:
+"The ability to manage money effectively, plan income and expenses and achieve financial goals.",
+
+
+def2Title:
+"Impulse purchase",
+
+
+def2Text:
+"An unplanned purchase made under the influence of emotions.",
+
+
+def3Title:
+"Financial goal",
+
+
+def3Text:
+"A planned financial result that should be achieved within a certain period.",
+
+
+footer:
+"Financial literacy • Science project"
+
+}
+
+};
+
+
+
+/* =========================================
+   АҒЫМДАҒЫ ТІЛ
+========================================= */
+
+let currentLanguage = "kk";
+
+
+/* =========================================
+   ЖАЛАҚЫ КАЛЬКУЛЯТОРЫ
+========================================= */
+
+function money(value){
+
+    return new Intl.NumberFormat("kk-KZ").format(
+        Math.round(value)
+    ) + " ₸";
+
+}
+
+
+function calculateSalary(){
+
+    const salary =
+        Number(
+            document.getElementById("salaryInput").value
+        ) || 0;
+
+
+    document.getElementById("salaryTotal").textContent =
+        money(salary);
+
+
+    document.getElementById("needAmount").textContent =
+        money(salary * 0.55);
+
+
+    document.getElementById("personalAmount").textContent =
+        money(salary * 0.05);
+
+
+    document.getElementById("debtAmount").textContent =
+        money(salary * 0.10);
+
+
+    document.getElementById("shortAmount").textContent =
+        money(salary * 0.15);
+
+
+    document.getElementById("longAmount").textContent =
+        money(salary * 0.15);
+
+}
+
+
+
+/* =========================================
+   ИМПУЛЬСИВТІЛІКТІҢ ЖАУАПТАРЫ
+========================================= */
+
+let impulseAnswers = {};
+
+
+
+/* =========================================
+   СҰРАҚТАРДЫ ЖАСАУ
+========================================= */
+
+function createQuestions(){
+
+    const t =
+        translations[currentLanguage];
+
+
+    const container =
+        document.getElementById("questions");
+
+
+    container.innerHTML = "";
+
+
+    impulseAnswers = {};
+
+
+    t.questions.forEach(
+        function(question,index){
+
+            const block =
+                document.createElement("div");
+
+
+            block.className =
+                "question";
+
+
+            block.innerHTML = `
+
+                <div class="question-text">
+
+                    ${index + 1}. ${question}
+
+                </div>
+
+
+                <div class="answer-buttons">
+
+
+                    <button
+                        type="button"
+                        class="answer"
+                        id="yes-${index}"
+                        onclick="
+                            selectImpulseAnswer(
+                                ${index},
+                                'yes'
+                            )
+                        "
+                    >
+
+                        ${t.yes}
+
+                    </button>
+
+
+
+                    <button
+                        type="button"
+                        class="answer"
+                        id="no-${index}"
+                        onclick="
+                            selectImpulseAnswer(
+                                ${index},
+                                'no'
+                            )
+                        "
+                    >
+
+                        ${t.no}
+
+                    </button>
+
+
+                </div>
+
+            `;
+
+
+            container.appendChild(block);
+
+        }
+    );
+
+}
+
+
+
+/* =========================================
+   ЖАУАПТЫ ТАҢДАУ
+========================================= */
+
+function selectImpulseAnswer(
+    questionNumber,
+    answer
+){
+
+    impulseAnswers[questionNumber] =
+        answer;
+
+
+    const yesButton =
+        document.getElementById(
+            "yes-" + questionNumber
+        );
+
+
+    const noButton =
+        document.getElementById(
+            "no-" + questionNumber
+        );
+
+
+    yesButton.classList.remove(
+        "selected"
+    );
+
+
+    noButton.classList.remove(
+        "selected"
+    );
+
+
+    if(answer === "yes"){
+
+        yesButton.classList.add(
+            "selected"
+        );
+
+    }
+
+    else{
+
+        noButton.classList.add(
+            "selected"
+        );
+
+    }
+
+}
+
+
+
+/* =========================================
+   НӘТИЖЕНІ ЕСЕПТЕУ
+========================================= */
+
+function checkImpulse(){
+
+    const t =
+        translations[currentLanguage];
+
+
+    const result =
+        document.getElementById(
+            "result"
+        );
+
+
+    const score =
+        document.getElementById(
+            "score"
+        );
+
+
+    const icon =
+        document.getElementById(
+            "resultIcon"
+        );
+
+
+    const title =
+        document.getElementById(
+            "resultTitle"
+        );
+
+
+    const text =
+        document.getElementById(
+            "resultText"
+        );
+
+
+
+    /* =============================
+       БОС ЖАУАПТАРДЫ ТЕКСЕРУ
+    ============================= */
+
+    let unanswered = [];
+
+
+    for(
+        let i = 0;
+        i < 7;
+        i++
+    ){
+
+        if(
+            impulseAnswers[i] === undefined
+        ){
+
+            unanswered.push(
+                i + 1
+            );
+
+        }
+
+    }
+
+
+
+    /* =============================
+       ЕГЕР БАРЛЫҒЫНА ЖАУАП БЕРІЛМЕСЕ
+    ============================= */
+
+    if(
+        unanswered.length > 0
+    ){
+
+        result.className =
+            "card result warn";
+
+
+        icon.textContent =
+            "⚠️";
+
+
+        score.textContent =
+            "—";
+
+
+        title.textContent =
+            t.missing;
+
+
+        text.textContent =
+            t.missingText +
+            unanswered.join(", ");
+
+
+        result.scrollIntoView({
+            behavior:"smooth",
+            block:"center"
+        });
+
+
+        return;
+
+    }
+
+
+
+    /* =============================
+       БАЛЛ ЕСЕПТЕУ
+    ============================= */
+
+    let points = 0;
+
+
+
+    /*
+       Импульсивті сатып алуға
+       бейімділікті көрсететін жауаптар:
+
+       1 — Иә = 1 балл
+       2 — Иә = 1 балл
+       3 — Иә = 1 балл
+       4 — Иә = 1 балл
+       5 — Иә = 1 балл
+       6 — Жоқ = 1 балл
+       7 — Иә = 1 балл
+    */
+
+
+    if(
+        impulseAnswers[0] === "yes"
+    ){
+        points++;
+    }
+
+
+    if(
+        impulseAnswers[1] === "yes"
+    ){
+        points++;
+    }
+
+
+    if(
+        impulseAnswers[2] === "yes"
+    ){
+        points++;
+    }
+
+
+    if(
+        impulseAnswers[3] === "yes"
+    ){
+        points++;
+    }
+
+
+    if(
+        impulseAnswers[4] === "yes"
+    ){
+        points++;
+    }
+
+
+    if(
+        impulseAnswers[5] === "no"
+    ){
+        points++;
+    }
+
+
+    if(
+        impulseAnswers[6] === "yes"
+    ){
+        points++;
+    }
+
+
+
+    /* =============================
+       ПАЙЫЗ
+    ============================= */
+
+    const percentage =
+        Math.round(
+            (points / 7) * 100
+        );
+
+
+    score.textContent =
+        percentage + "%";
+
+
+
+    result.className =
+        "card result";
+
+
+
+    /* =============================
+       ДЕҢГЕЙ
+    ============================= */
+
+    if(
+        percentage <= 28
+    ){
+
+        result.classList.add(
+            "good"
+        );
+
+
+        icon.textContent =
+            "🟢";
+
+
+        title.textContent =
+            t.low;
+
+
+        text.textContent =
+            t.lowText;
+
+    }
+
+
+    else if(
+        percentage <= 57
+    ){
+
+        result.classList.add(
+            "warn"
+        );
+
+
+        icon.textContent =
+            "🟡";
+
+
+        title.textContent =
+            t.medium;
+
+
+        text.textContent =
+            t.mediumText;
+
+    }
+
+
+    else{
+
+        result.classList.add(
+            "bad"
+        );
+
+
+        icon.textContent =
+            "🔴";
+
+
+        title.textContent =
+            t.high;
+
+
+        text.textContent =
+            t.highText;
+
+    }
+
+
+
+    /* =============================
+       НӘТИЖЕГЕ АВТОМАТТЫ ТҮСУ
+    ============================= */
+
+    result.scrollIntoView({
+        behavior:"smooth",
+        block:"center"
+    });
+
+}
+
+
+
+/* =========================================
+   ТІЛ АУЫСТЫРУ
+========================================= */
+
+function changeLanguage(language){
+
+    currentLanguage =
+        language;
+
+
+    const t =
+        translations[language];
+
+
+
+    document.getElementById(
+        "badge"
+    ).textContent =
+        t.badge;
+
+
+    document.getElementById(
+        "navHome"
+    ).textContent =
+        t.home;
+
+
+    document.getElementById(
+        "navDefinitions"
+    ).textContent =
+        t.definitions;
+
+
+    document.getElementById(
+        "navSalary"
+    ).textContent =
+        t.salary;
+
+
+    document.getElementById(
+        "navImpulse"
+    ).textContent =
+        t.impulse;
+
+
+
+    document.getElementById(
+        "heroTitle"
+    ).innerHTML =
+        t.heroTitle;
+
+
+    document.getElementById(
+        "heroText"
+    ).textContent =
+        t.heroText;
+
+
+    document.getElementById(
+        "heroButton"
+    ).textContent =
+        t.heroButton;
+
+
+
+    document.getElementById(
+        "salaryTitle"
+    ).textContent =
+        t.salaryTitle;
+
+
+    document.getElementById(
+        "salaryText"
+    ).textContent =
+        t.salaryText;
+
+
+    document.getElementById(
+        "salaryLabel"
+    ).textContent =
+        t.salaryLabel;
+
+
+    document.getElementById(
+        "salaryHint"
+    ).textContent =
+        t.salaryHint;
+
+
+    document.getElementById(
+        "totalText"
+    ).textContent =
+        t.total;
+
+
+
+    document.getElementById(
+        "needText"
+    ).textContent =
+        t.need;
+
+
+    document.getElementById(
+        "personalText"
+    ).textContent =
+        t.personal;
+
+
+    document.getElementById(
+        "debtText"
+    ).textContent =
+        t.debt;
+
+
+    document.getElementById(
+        "shortText"
+    ).textContent =
+        t.short;
+
+
+    document.getElementById(
+        "longText"
+    ).textContent =
+        t.long;
+
+
+
+    document.getElementById(
+        "impulseTitle"
+    ).textContent =
+        t.impulseTitle;
+
+
+    document.getElementById(
+        "impulseDescription"
+    ).textContent =
+        t.impulseDescription;
+
+
+    document.getElementById(
+        "checkButton"
+    ).textContent =
+        t.check;
+
+
+
+    document.getElementById(
+        "definitionsTitle"
+    ).textContent =
+        t.definitionsTitle;
+
+
+    document.getElementById(
+        "definitionsDescription"
+    ).textContent =
+        t.definitionsDescription;
+
+
+    document.getElementById(
+        "def1Title"
+    ).textContent =
+        t.def1Title;
+
+
+    document.getElementById(
+        "def1Text"
+    ).textContent =
+        t.def1Text;
+
+
+    document.getElementById(
+        "def2Title"
+    ).textContent =
+        t.def2Title;
+
+
+    document.getElementById(
+        "def2Text"
+    ).textContent =
+        t.def2Text;
+
+
+    document.getElementById(
+        "def3Title"
+    ).textContent =
+        t.def3Title;
+
+
+    document.getElementById(
+        "def3Text"
+    ).textContent =
+        t.def3Text;
+
+
+    document.getElementById(
+        "footerText"
+    ).textContent =
+        t.footer;
+
+
+
+    /* =============================
+       ТІЛ БАТЫРМАСЫ
+    ============================= */
+
+    document
+        .querySelectorAll(".lang")
+        .forEach(
+            button =>
+                button.classList.remove(
+                    "active"
+                )
+        );
+
+
+    const activeLanguage =
+        document.querySelector(
+            `.lang[onclick="changeLanguage('${language}')"]`
+        );
+
+
+    if(activeLanguage){
+
+        activeLanguage.classList.add(
+            "active"
+        );
+
+    }
+
+
+
+    /* =============================
+       СҰРАҚТАРДЫ ҚАЙТА ЖАСАУ
+    ============================= */
+
+    createQuestions();
+
+
+
+    /* =============================
+       НӘТИЖЕНІ ТАЗАЛАУ
+    ============================= */
+
+    document.getElementById(
+        "score"
+    ).textContent =
+        "—";
+
+
+    document.getElementById(
+        "resultIcon"
+    ).textContent =
+        "🧠";
+
+
+    document.getElementById(
+        "resultTitle"
+    ).textContent =
+        t.resultDefault;
+
+
+    document.getElementById(
+        "resultText"
+    ).textContent =
+        t.resultInstruction;
+
+
+    document.getElementById(
+        "result"
+    ).className =
+        "card result";
+
+}
+
+
+
+/* =========================================
+   БӨЛІМГЕ ӨТУ
+========================================= */
+
+function go(id){
+
+    document
+        .getElementById(id)
+        .scrollIntoView({
+            behavior:"smooth"
+        });
+
+}
+
+
+
+/* =========================================
+   БАСТАПҚЫ ІСКЕ ҚОСУ
+========================================= */
+
+createQuestions();
+
+calculateSalary();
+
+</script>
+
+
+</body>
+</html>
